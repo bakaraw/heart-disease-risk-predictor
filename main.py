@@ -6,25 +6,27 @@ import gdown
 import time
 
 # Google Drive model file ID
-# file_id = "1uAUgca7bg42dFFrIJta1PnlShHgqykYS"
-# url = f"https://drive.google.com/uc?id={file_id}"
+file_id = "1--xUVJcc7yGUiY6tNwR7gEgvgqNqSvFC"
+url = f"https://drive.google.com/uc?id={file_id}"
 
-# # Download only if not already downloaded
-# model_path = "heart_disease_model.joblib"
-# if not os.path.exists(model_path):
-#     with st.spinner("🔄 Downloading model from Google Drive..."):
-#         progress = st.progress(0)
-#         for i in range(0, 100, 10):
-#             time.sleep(0.1)  # Simulate progress
-#             progress.progress(i)
-#         gdown.download(url, model_path, quiet=False)
-#         progress.progress(100)
+# Download only if not already downloaded
+model_path = "model_compressed.joblib"
+if not os.path.exists(model_path):
+    with st.spinner("🔄 Downloading model from Google Drive..."):
+        progress = st.progress(0)
+        for i in range(0, 100, 10):
+            time.sleep(0.1)  # Simulate progress
+            progress.progress(i)
+        gdown.download(url, model_path, quiet=False)
+        progress.progress(100)
+
+model = joblib.load(model_path)
 
 # Load model
-with st.spinner("🔄 Loading the prediction model..."):
-    time.sleep(1.5) 
-    model = joblib.load('models/model_compressed.joblib')
-st.success("✅ Model loaded successfully!")
+# with st.spinner("🔄 Loading the prediction model..."):
+#     time.sleep(1.5) 
+#     model = joblib.load('models/model_compressed.joblib')
+# st.success("✅ Model loaded successfully!")
 
 # Mapping for age category
 age_order = {
