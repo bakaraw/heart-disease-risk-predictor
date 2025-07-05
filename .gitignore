@@ -35,7 +35,7 @@ dist/
 build/
 
 # Model and data artifacts
-models/*.joblib
+# models/*.joblib
 *.csv
 
 # Streamlit cache
