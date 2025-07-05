@@ -23,7 +23,7 @@ import time
 # Load model
 with st.spinner("🔄 Loading the prediction model..."):
     time.sleep(1.5) 
-    model = joblib.load('heart_disease_model_compressed.joblib')
+    model = joblib.load('model_compressed.joblib')
 st.success("✅ Model loaded successfully!")
 
 # Mapping for age category
